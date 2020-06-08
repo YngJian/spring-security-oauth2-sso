@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sso.example.server.mapper.OauthClientDetailsMapper">
+  <resultMap id="BaseResultMap" type="sso.example.server.entity.OauthClientDetails">
+    <!--@mbg.generated-->
+    <!--@Table oauth_client_details-->
+    <id column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="resource_ids" jdbcType="VARCHAR" property="resourceIds" />
+    <result column="client_secret" jdbcType="VARCHAR" property="clientSecret" />
+    <result column="scope" jdbcType="VARCHAR" property="scope" />
+    <result column="authorized_grant_types" jdbcType="VARCHAR" property="authorizedGrantTypes" />
+    <result column="web_server_redirect_uri" jdbcType="VARCHAR" property="webServerRedirectUri" />
+    <result column="authorities" jdbcType="VARCHAR" property="authorities" />
+    <result column="access_token_validity" jdbcType="INTEGER" property="accessTokenValidity" />
+    <result column="refresh_token_validity" jdbcType="INTEGER" property="refreshTokenValidity" />
+    <result column="additional_information" jdbcType="VARCHAR" property="additionalInformation" />
+    <result column="autoapprove" jdbcType="VARCHAR" property="autoapprove" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    client_id, resource_ids, client_secret, `scope`, authorized_grant_types, web_server_redirect_uri, 
+    authorities, access_token_validity, refresh_token_validity, additional_information, 
+    autoapprove
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from oauth_client_details
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from oauth_client_details
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="sso.example.server.entity.OauthClientDetails">
+    <!--@mbg.generated-->
+    insert into oauth_client_details (client_id, resource_ids, client_secret, 
+      `scope`, authorized_grant_types, web_server_redirect_uri, 
+      authorities, access_token_validity, refresh_token_validity, 
+      additional_information, autoapprove)
+    values (#{clientId,jdbcType=VARCHAR}, #{resourceIds,jdbcType=VARCHAR}, #{clientSecret,jdbcType=VARCHAR}, 
+      #{scope,jdbcType=VARCHAR}, #{authorizedGrantTypes,jdbcType=VARCHAR}, #{webServerRedirectUri,jdbcType=VARCHAR}, 
+      #{authorities,jdbcType=VARCHAR}, #{accessTokenValidity,jdbcType=INTEGER}, #{refreshTokenValidity,jdbcType=INTEGER}, 
+      #{additionalInformation,jdbcType=VARCHAR}, #{autoapprove,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="sso.example.server.entity.OauthClientDetails">
+    <!--@mbg.generated-->
+    insert into oauth_client_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null and clientId != ''">
+        client_id,
+      </if>
+      <if test="resourceIds != null and resourceIds != ''">
+        resource_ids,
+      </if>
+      <if test="clientSecret != null and clientSecret != ''">
+        client_secret,
+      </if>
+      <if test="scope != null and scope != ''">
+        `scope`,
+      </if>
+      <if test="authorizedGrantTypes != null and authorizedGrantTypes != ''">
+        authorized_grant_types,
+      </if>
+      <if test="webServerRedirectUri != null and webServerRedirectUri != ''">
+        web_server_redirect_uri,
+      </if>
+      <if test="authorities != null and authorities != ''">
+        authorities,
+      </if>
+      <if test="accessTokenValidity != null">
+        access_token_validity,
+      </if>
+      <if test="refreshTokenValidity != null">
+        refresh_token_validity,
+      </if>
+      <if test="additionalInformation != null and additionalInformation != ''">
+        additional_information,
+      </if>
+      <if test="autoapprove != null and autoapprove != ''">
+        autoapprove,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null and clientId != ''">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceIds != null and resourceIds != ''">
+        #{resourceIds,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSecret != null and clientSecret != ''">
+        #{clientSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null and scope != ''">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="authorizedGrantTypes != null and authorizedGrantTypes != ''">
+        #{authorizedGrantTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="webServerRedirectUri != null and webServerRedirectUri != ''">
+        #{webServerRedirectUri,jdbcType=VARCHAR},
+      </if>
+      <if test="authorities != null and authorities != ''">
+        #{authorities,jdbcType=VARCHAR},
+      </if>
+      <if test="accessTokenValidity != null">
+        #{accessTokenValidity,jdbcType=INTEGER},
+      </if>
+      <if test="refreshTokenValidity != null">
+        #{refreshTokenValidity,jdbcType=INTEGER},
+      </if>
+      <if test="additionalInformation != null and additionalInformation != ''">
+        #{additionalInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="autoapprove != null and autoapprove != ''">
+        #{autoapprove,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="sso.example.server.entity.OauthClientDetails">
+    <!--@mbg.generated-->
+    update oauth_client_details
+    <set>
+      <if test="resourceIds != null and resourceIds != ''">
+        resource_ids = #{resourceIds,jdbcType=VARCHAR},
+      </if>
+      <if test="clientSecret != null and clientSecret != ''">
+        client_secret = #{clientSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null and scope != ''">
+        `scope` = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="authorizedGrantTypes != null and authorizedGrantTypes != ''">
+        authorized_grant_types = #{authorizedGrantTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="webServerRedirectUri != null and webServerRedirectUri != ''">
+        web_server_redirect_uri = #{webServerRedirectUri,jdbcType=VARCHAR},
+      </if>
+      <if test="authorities != null and authorities != ''">
+        authorities = #{authorities,jdbcType=VARCHAR},
+      </if>
+      <if test="accessTokenValidity != null">
+        access_token_validity = #{accessTokenValidity,jdbcType=INTEGER},
+      </if>
+      <if test="refreshTokenValidity != null">
+        refresh_token_validity = #{refreshTokenValidity,jdbcType=INTEGER},
+      </if>
+      <if test="additionalInformation != null and additionalInformation != ''">
+        additional_information = #{additionalInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="autoapprove != null and autoapprove != ''">
+        autoapprove = #{autoapprove,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="sso.example.server.entity.OauthClientDetails">
+    <!--@mbg.generated-->
+    update oauth_client_details
+    set resource_ids = #{resourceIds,jdbcType=VARCHAR},
+      client_secret = #{clientSecret,jdbcType=VARCHAR},
+      `scope` = #{scope,jdbcType=VARCHAR},
+      authorized_grant_types = #{authorizedGrantTypes,jdbcType=VARCHAR},
+      web_server_redirect_uri = #{webServerRedirectUri,jdbcType=VARCHAR},
+      authorities = #{authorities,jdbcType=VARCHAR},
+      access_token_validity = #{accessTokenValidity,jdbcType=INTEGER},
+      refresh_token_validity = #{refreshTokenValidity,jdbcType=INTEGER},
+      additional_information = #{additionalInformation,jdbcType=VARCHAR},
+      autoapprove = #{autoapprove,jdbcType=VARCHAR}
+    where client_id = #{clientId,jdbcType=VARCHAR}
+  </update>
+</mapper>

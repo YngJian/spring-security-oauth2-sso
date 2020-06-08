@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextName>tinybuilder_tbs</contextName>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+
+    <property name="log.path" value="data/logs"/>
+
+</configuration>
