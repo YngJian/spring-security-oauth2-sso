@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <contextName>tinybuilder_tbs</contextName>
+    <contextName>sso</contextName>
     <include resource="org/springframework/boot/logging/logback/base.xml" />
 
 
